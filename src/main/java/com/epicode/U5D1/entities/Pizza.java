@@ -1,13 +1,20 @@
 package com.epicode.U5D1.entities;
 
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
-
+@Entity(name = "pizzas")
+@NoArgsConstructor
 @Getter
 public class Pizza extends Item {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
 	private String name;
-
+@JoinColumn
+@OneToMany
 	private List<Topping> toppingList;
 	private boolean isXl = false;
 
@@ -34,9 +41,9 @@ public class Pizza extends Item {
 	public double setPrice(List<Topping> t, boolean isXl) {
 		double tot = 4.30;
 		if (t != null) {
-			for (int i = 0; i < t.size(); i++) {
-				tot += t.get(i).getPrice();
-			}
+            for (Topping topping : t) {
+                tot += topping.getPrice();
+            }
 		}
 
 		if (isXl) return tot += (tot * 10) / 100;

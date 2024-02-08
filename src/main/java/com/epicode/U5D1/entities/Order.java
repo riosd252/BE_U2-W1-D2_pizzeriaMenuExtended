@@ -22,9 +22,9 @@ public class Order {
     @Setter
     private OrderStatus status;
 
-    public Order(int orderId, LocalTime timeOfAcquisition, Table orderTable, int services, List<Item> orderItems) {
+    public Order(int orderId, Table orderTable, int services, List<Item> orderItems) {
         this.orderId = orderId;
-        this.timeOfAcquisition = timeOfAcquisition;
+        this.timeOfAcquisition = LocalTime.now();
         this.orderTable = orderTable;
         this.services = services;
         this.orderItems = orderItems;

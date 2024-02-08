@@ -1,7 +1,8 @@
 package com.epicode.U5D1.entities;
 
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
-
+@MappedSuperclass
 @Getter
 public abstract class Item {
 
@@ -12,5 +13,7 @@ public abstract class Item {
 		this.calories = calories;
 		this.price = price;
 	}
+
+	public Item(){}
 
 }

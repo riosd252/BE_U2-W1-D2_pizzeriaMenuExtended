@@ -109,18 +109,15 @@ public class AppConfig {
 		return new Menu(pizzaList, drinkList, toppingsList);
 	}
 
-	@Bean(name = "table1")
-	public int number1() { return 1; }
+	@Bean(name = "tableForOne")
+	public Table table1() {return new Table(1, 1);}
 
-	@Bean(name = "table1Capacity")
-	public int Capacity() { return 4; }
+	@Bean(name = "tableForTwo")
+	public Table table2() {return new Table(2, 2);}
 
-	@Bean(name = "table2")
-	public Table table2() {return new Table(2, 3);}
+	@Bean(name = "tableForThree")
+	public Table table3() {return new Table(3, 3);}
 
-	@Bean(name = "table3")
-	public Table table3() {return new Table(3, 2);}
-
-	@Bean(name = "table4")
-	public Table table4() {return new Table(4, 1);}
+	@Bean(name = "tableForFour")
+	public Table table4() {return new Table(4, 4);}
 }
